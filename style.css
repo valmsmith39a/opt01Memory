@@ -22,8 +22,9 @@
 	height:22%;
 	width:20%;
 	margin:2px;
+	padding:5px;
 	border: 2px solid black;
-	display:inline-block;
+	display:inline-table; 
 	background-color: blue;
 	color:white;
 	font-size:12px;

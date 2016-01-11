@@ -8,12 +8,11 @@ var currentlyOpenedCountFlagG = 0;  // Track
 
 function init() {
 
-console.log('in jquery');
+	console.log('in jquery');
 
-setUpGame(); 
+	setUpGame(); 
 
-$('.images').click(clickedImage);
-
+	$('.images').click(clickedImage);
 }
 
 function setUpGame() {
@@ -39,14 +38,6 @@ function clickedImage() {
     // $this is local in nature. Will be the same even after leaving the function. 
     var $this = $(this);
 
-    var test = false 
-
-    /*
-    if(($this.attr('class').split(' ')[1] !== 'selected') && ) {
-		// Track open card sequence 
-   		
-    }
-    */
     currentlyOpenedCountFlagG++; 
    
     // Add image to card only if the card has not been selected    
@@ -55,7 +46,6 @@ function clickedImage() {
 
   	    console.log('INSIDE SELECTED');
 
-     
         // Generate a random index between 0 and the (length of the array - 1)
    		randomArrayIndex = Math.floor(Math.random()*arrayOfImagesG.length + 0);
 
@@ -66,21 +56,11 @@ function clickedImage() {
    		$this.addClass('selected');
 
         //$(this).append('<i class=\'fa fa-heart\'>');
-        $(this).append('<i class=\''+cardImage+'\'>');
-      
-        /*  Maybe be useful... 
-        	console.log('this is previous element image', $previousElementG.find('i').attr('class'));
-        	console.log('this is current element image', $(this).find('i').attr('class'));
-        	console.log('is current element image equal to previous element image?', ($previousElementG.find('i').attr('class') === $(this).find('i').attr('class')));
-        	$(this).find('i').hide();
-        	$(this).find('i').show();
-        */
-
+        $(this).prepend('<i class=\''+cardImage+'\'>');
     }  // if(($this.attr('class').split(' ')[1] !== 'selected')...
 
     else {
- 		//debugger;
- 		
+
  		$(this).find('i').show();
  	}
 
@@ -88,22 +68,11 @@ function clickedImage() {
     // Compare 2 elements on opening the 2nd card 
     if(currentlyOpenedCountFlagG === 2) {
 
-    	//debugger;
-
-    	console.log('INSIDE COMPARE');
-           
-        //debugger;
-        console.log('current', ($this.attr('class').split(' ')[2]));
-        console.log('current', ($previousElementG.attr('class').split(' ')[2]));
-
-        console.log('curren its ', $this);
-        console.log('previous is', $previousElementG);
+        var $tempPreviousElement = $previousElementG; 		
+		var $tempThis = $(this);
         
         if(($this.attr('class').split(' ')[2] !== 'remainOpen') && ($previousElementG.attr('class').split(' ')[2] !== 'remainOpen')){
          	
-         	var $tempPreviousElement = $previousElementG; 		
-			var $tempThis = $(this);
-           
     		if($(this).find('i').attr('class') !== $previousElementG.find('i').attr('class')) {
 
     			console.log('INSIDE TWO ELEMENTS NOT EQUAL');
@@ -119,22 +88,19 @@ function clickedImage() {
 
         	else {
 
-        		debugger;
         		// Label element to indicate should remain open       		
    				$this.addClass('remainOpen');
-
+   				$tempPreviousElement.addClass('remainOpen');
         	}
 
     	} // if this.attr split remain open 
 
     	else if($this.attr('class').split(' ')[2] !== 'remainOpen' && $previousElementG.attr('class').split(' ')[2] === 'remainOpen') {
-	    	
-	    	debugger;
-	    	$this.find('i').hide();
+	  
+	  	    	$this.find('i').hide();
     	} 
 
     	else if($this.attr('class').split(' ')[2] === 'remainOpen' && $previousElementG.attr('class').split(' ')[2] !== 'remainOpen') {   
-			debugger;
 			$tempPreviousElement.find('i').hide(); 
     	}
         
@@ -142,7 +108,7 @@ function clickedImage() {
         currentlyOpenedCountFlagG = 0;
     }  // currentlyOpenedCountFlagG === 2
 
-        // Set previous element to current element 
+    // Set previous element to current element 
     $previousElementG = $(this); 
 }  //  clickedImage()
 

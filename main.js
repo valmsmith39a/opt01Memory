@@ -80,7 +80,6 @@ function clickedImage() {
     	    	setTimeout(function(){ 
 
 					$tempPreviousElement.find('i').hide(); 
-        	    	
     		    	$this.find('i').hide();
 			 
         	    }, 1000);  // setTimeout() 
@@ -101,6 +100,7 @@ function clickedImage() {
     	} 
 
     	else if($this.attr('class').split(' ')[2] === 'remainOpen' && $previousElementG.attr('class').split(' ')[2] !== 'remainOpen') {   
+			
 			$tempPreviousElement.find('i').hide(); 
     	}
         

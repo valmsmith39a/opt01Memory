@@ -3,7 +3,7 @@
 	position:absolute;
 	height:100%;
 	width:100%;
-	background-color:red;
+	/* background-color:red; */
 	text-align:center;
 }
 
@@ -14,18 +14,32 @@
 	margin:5%;
 	padding-left:10%;
 	padding-right:10%;
-	border:5px solid black;
-	background-color: green;
+	/* border:5px solid black; */
+	/* background-color: green; */
 }
 
 .images{
+	position:relative;
 	height:22%;
 	width:20%;
 	margin:2px;
 	padding:5px;
 	border: 2px solid black;
 	display:inline-table; 
+	vertical-align: top;
 	background-color: blue;
 	color:white;
 	font-size:12px;
+}
+
+.fa {
+	position:relative;
+	font-size:60px;
+	margin-top:30px;
+}
+
+h1 {
+	position:relative;
+	top:30px;
+	color:black;
 }

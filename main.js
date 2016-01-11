@@ -4,7 +4,11 @@ var arrayOfImagesG = ['fa fa-heart', 'fa fa-heart','fa fa-anchor', 'fa fa-anchor
 
 var $previousElementG = $();
 
-var currentlyOpenedCountFlagG = 0;  // Track 
+var currentlyOpenedCountFlagG = 0;  // Track number of squares currently opened 
+
+var totalOpenedCountFlagG = 0; 
+
+var numberOfSquaresG = 16;   
 
 function init() {
 
@@ -19,7 +23,7 @@ function setUpGame() {
 
     var imagesArray = [];
 
-    for(var i = 0; i < 16; i++) {
+    for(var i = 0; i < numberOfSquaresG; i++) {
 
     	var $element = $('<div>').addClass('images').data('number', -1);
 
@@ -87,20 +91,35 @@ function clickedImage() {
 
         	else {
 
+        		debugger;
+
         		// Label element to indicate should remain open       		
    				$this.addClass('remainOpen');
    				$tempPreviousElement.addClass('remainOpen');
+
+   				console.log($this.addClass('remainOpen'));
+   				console.log($tempPreviousElement.addClass('remainOpen'));
+
+
+   				totalOpenedCountFlagG++;
+
+   				console.log('total opened count', totalOpenedCountFlagG);
+
+   				if(totalOpenedCountFlagG === (numberOfSquaresG/2)) {
+
+   					winEvent(event);
+   				}
         	}
 
     	} // if this.attr split remain open 
 
-    	else if($this.attr('class').split(' ')[2] !== 'remainOpen' && $previousElementG.attr('class').split(' ')[2] === 'remainOpen') {
-	  
-	  	    	$this.find('i').hide();
+    	else if($this.attr('class').split(' ')[2] !== 'remainOpen' && $tempPreviousElement.attr('class').split(' ')[2] === 'remainOpen') {
+	  		debugger;
+	  	    $this.find('i').hide();
     	} 
 
-    	else if($this.attr('class').split(' ')[2] === 'remainOpen' && $previousElementG.attr('class').split(' ')[2] !== 'remainOpen') {   
-			
+    	else if($this.attr('class').split(' ')[2] === 'remainOpen' && $tempPreviousElement.attr('class').split(' ')[2] !== 'remainOpen') {   
+			debugger;
 			$tempPreviousElement.find('i').hide(); 
     	}
         
@@ -111,6 +130,11 @@ function clickedImage() {
     // Set previous element to current element 
     $previousElementG = $(this); 
 }  //  clickedImage()
+
+function winEvent(event) {
+
+	alert('YOU WIN!!!!');
+}
 
 
   

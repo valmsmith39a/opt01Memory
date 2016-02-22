@@ -3,7 +3,6 @@
 	position:absolute;
 	height:100%;
 	width:100%;
-	/* background-color:red; */
 	text-align:center;
 }
 
@@ -14,8 +13,6 @@
 	margin:5%;
 	padding-left:10%;
 	padding-right:10%;
-	/* border:5px solid black; */
-	/* background-color: green; */
 }
 
 .images{

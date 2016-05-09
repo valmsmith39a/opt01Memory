@@ -1,0 +1,22 @@
+{
+  "name": "opt01Memory",
+  "homepage": "https://github.com/valmsmith39a/opt01Memory",
+  "authors": [
+    "valmsmith39a <valmsmith39a@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.1",
+    "bootstrap": "~3.3.6"
+  }
+}

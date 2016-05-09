@@ -22,7 +22,7 @@
 	margin:2px;
 	padding:5px;
 	border: 2px solid black;
-	display:inline-table; 
+	display:inline-table;
 	vertical-align: top;
 	background-color: blue;
 	color:white;
@@ -39,4 +39,5 @@ h1 {
 	position:relative;
 	top:30px;
 	color:black;
+	font-family: 'Raleway', sans-serif;
 }
